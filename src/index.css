@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-cream: #F7F5EF;
+    --primary: #1F6B4F;
+    --primary-dark: #16523C;
+    --primary-surface: #DCEBDD;
+    --accent: #F2A93B;
+    --charcoal: #1E2521;
+    --charcoal-muted: #697A71;
+    --card-bg: #FFFFFF;
+    --border-color: #E6E2D8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--bg-cream);
+    color: var(--charcoal);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    overflow-x: hidden;
+  }
+
+  /* Custom clean scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F0ECE1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C8C2B3;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1F6B4F;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-[#E8E4D9] shadow-soft transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply hover:border-[#D0E2D6] hover:shadow-card hover:-translate-y-0.5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-white bg-[#1F6B4F] hover:bg-[#18553F] active:bg-[#124230] shadow-sm transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-[#1F6B4F] bg-[#DCEBDD] hover:bg-[#CFE4D1] active:bg-[#C2DC4] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-[#1E2521] bg-white border border-[#E3DFD5] hover:bg-[#FAF8F3] hover:border-[#CCD8D0] active:bg-[#F2EFE7] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px];
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-slate-900 bg-[#F2A93B] hover:bg-[#E09626] active:bg-[#C87B11] shadow-sm transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-medium text-[#425149] hover:text-[#1F6B4F] hover:bg-[#EAF3ED] transition-all duration-150 min-h-[44px];
+  }
+
+  .input-field {
+    @apply w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#DCD6C8] text-[#1E2521] placeholder-[#8E9B93] text-sm focus:outline-none focus:ring-2 focus:ring-[#1F6B4F]/25 focus:border-[#1F6B4F] transition-all duration-150 min-h-[44px];
+  }
+
+  .badge-success {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#E4F5E9] text-[#156B3A] border border-[#C5E9CE];
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#FEF6E8] text-[#B06B08] border border-[#FCDDB0];
+  }
+
+  .badge-danger {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#FDEEED] text-[#C92A2A] border border-[#F9C9C6];
+  }
+
+  .badge-info {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#EBF3FC] text-[#1965B8] border border-[#CCE1FA];
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#F0ECE1] text-[#4F5D54] border border-[#DDD7C8];
+  }
+}
+
+/* Glass & AI glows */
+.ai-gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, rgba(31, 107, 79, 0.12), rgba(242, 169, 59, 0.15));
+  border: 1px solid rgba(31, 107, 79, 0.2);
+}
+
+.ai-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #1F6B4F;
+  box-shadow: 0 0 0 0 rgba(31, 107, 79, 0.7);
+  animation: pulsing 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulsing {
+  to {
+    box-shadow: 0 0 0 12px rgba(31, 107, 79, 0);
+  }
+}
+
+/* Print styling for business reports */
+@media print {
+  body {
+    background: #FFFFFF !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-break-inside-avoid {
+    break-inside: avoid;
+  }
+}

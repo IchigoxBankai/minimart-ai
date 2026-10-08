@@ -19,7 +19,7 @@ import { useStore } from '../../context/StoreContext';
 import { useAuth } from '../../context/AuthContext';
 
 export const Sidebar = ({ activePage, setActivePage }) => {
-  const { metrics, profile } = useStore();
+  const { metrics, profile, isCashierMode } = useStore();
   const { currentUser, isDemo, logout } = useAuth();
 
   const navItems = [
